@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="14460.31" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="AgC-eL-Hgc">
+    <device id="watch38" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="watchOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="14460.16"/>
+    </dependencies>
+    <scenes>
+        <!--Interface Controller-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="APIDemo_WatchKit_App" customModuleProvider="target">
+                    <items>
+                        <label alignment="center" text="Vancouver" id="x5x-MS-41c"/>
+                        <separator width="60" alignment="center" id="WTz-UK-0sX">
+                            <color key="color" red="0.62547176270000004" green="1" blue="0.25859282109999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </separator>
+                        <group width="1" alignment="left" spacing="7" id="OzM-Pe-VTX">
+                            <items>
+                                <imageView width="32" height="32" alignment="left" verticalAlignment="center" image="sunrise" id="aJS-J6-xEy"/>
+                                <group width="1" alignment="left" layout="vertical" id="tja-Gk-3cW">
+                                    <items>
+                                        <label alignment="left" text="Sun rises at" id="wBA-oE-SWo"/>
+                                        <label alignment="left" text="[sunriseTime]" id="Pwc-3X-jEk"/>
+                                    </items>
+                                </group>
+                            </items>
+                        </group>
+                        <group width="1" alignment="left" spacing="7" id="Bb3-85-QSr">
+                            <items>
+                                <imageView width="32" height="32" alignment="left" verticalAlignment="center" image="sunset" id="Qr9-Ee-UkO"/>
+                                <group width="1" alignment="left" layout="vertical" id="v6n-Ho-uVF">
+                                    <items>
+                                        <label alignment="left" text="Sun rises at" id="gmZ-fN-vZ6"/>
+                                        <label alignment="left" text="[Sunset Time]" id="Vp7-7C-fh3"/>
+                                    </items>
+                                </group>
+                            </items>
+                        </group>
+                        <imageView width="32" height="32" alignment="center" id="9t1-Y7-QEc"/>
+                        <button width="1" alignment="left" title="Change City" id="BSY-c0-DD0">
+                            <connections>
+                                <segue destination="xeC-Tu-aLK" kind="push" id="sfM-xz-IxX"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="cityLabel" destination="x5x-MS-41c" id="pQ3-Xd-PoW"/>
+                        <outlet property="loadingImage" destination="9t1-Y7-QEc" id="V0s-2e-vkj"/>
+                        <outlet property="sunriseTimeLabel" destination="Pwc-3X-jEk" id="eQ5-Rf-Zzl"/>
+                        <outlet property="sunsetTimeLabel" destination="Vp7-7C-fh3" id="kjw-dD-e9N"/>
+                    </connections>
+                </controller>
+            </objects>
+        </scene>
+        <!--Change City Interface Controller-->
+        <scene sceneID="kO9-VM-UZw">
+            <objects>
+                <controller id="xeC-Tu-aLK" customClass="ChangeCityInterfaceController" customModule="APIDemo_WatchKit_Extension">
+                    <items>
+                        <button width="1" alignment="left" title="Pick City" id="vrY-ty-Ttq">
+                            <connections>
+                                <action selector="pickCityBtn" destination="xeC-Tu-aLK" id="AQ7-Os-Nho"/>
+                            </connections>
+                        </button>
+                        <label alignment="left" text="Current City" id="V4E-Rb-RMb"/>
+                        <label alignment="center" text="-" id="VdC-1q-D2b"/>
+                        <button width="1" alignment="left" verticalAlignment="bottom" title="Save City" id="p8w-MV-zP0">
+                            <connections>
+                                <action selector="saveCityBtn" destination="xeC-Tu-aLK" id="ZHf-1R-jvO"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="cityLabel" destination="V4E-Rb-RMb" id="IyE-GC-kfo"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="427" y="129"/>
+        </scene>
+    </scenes>
+</document>
